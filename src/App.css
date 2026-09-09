@@ -10,7 +10,24 @@ main {
   justify-content: center;
   height: 100vh;
 }
-.mainContainer{
+.mainContainer {
   background-color: white;
-
+}
+.navBtn {
+  height: 4rem;
+  width: 25rem;
+  display: flex;
+  justify-self: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  border: 2px solid gray;
+  border-radius: 5px;
+  box-shadow: -1px -2px 3px gray;
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+}
+.navBtn:hover {
+  background-color: lightgray;
 }
