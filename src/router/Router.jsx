@@ -9,7 +9,7 @@ const router = createBrowserRouter([
     element: <AllCards />,
   },
   {
-    path: "/AddCards",
+    path: "/AddCard",
     element: <AddCard />,
   },
 ]);
