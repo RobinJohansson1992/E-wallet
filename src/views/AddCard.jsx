@@ -1,37 +1,39 @@
 import Card from "../components/card/Card";
 import Header from "../components/header/Header";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../App.css";
+import { useState } from "react";
+import CardForm from "../components/cardForm/CardForm";
+import { useDispatch } from "react-redux";
+import { addToCardStack } from "../reducers/CardReducer";
 
 function AddCard() {
+  const [card, setCard] = useState({
+    cardNumber: "",
+    cardHolder: "",
+    validThru: "",
+    ccv: "",
+    vendor: "",
+  });
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleAddCard = () => {
+    dispatch(addToCardStack(card));
+    navigate("/");
+  };
+
   return (
     <>
       <Header header="ADD CARD" activeCard="NEW CARD" />
-      <Card />
-      <section className="cardForm">
-        <p>CARD NUMBER</p>
-        <input type="text" className="bigInput" />
-        <p>CARDHOLDER NAME</p>
-        <input
-          placeholder="FIRSTNAME LASTNAME"
-          type="text"
-          className="bigInput"
-        />
-        <div className="smallFields">
-          <div className="smallFieldContainer">
-            <p>VALID THRU</p>
-            <input type="date" className="smallInput" />
-          </div>
-          <div className="smallFieldContainer">
-            <p>CCV</p>
-            <input type="text" className="smallInput" />
-          </div>
-        </div>
-        <p>VENDOR</p>
-        <select name="" id="" className="bigInput"></select>
-      </section>
-      <Link to="/" className="navBtn">
+      <Card card={card} />
+      <CardForm card={card} setCard={setCard} />
+      <button onClick={handleAddCard} className="navBtn">
         ADD CARD
+      </button>
+      <Link to="/" className="navBtn">
+        Back
       </Link>
     </>
   );
