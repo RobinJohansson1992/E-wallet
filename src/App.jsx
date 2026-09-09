@@ -1,12 +1,14 @@
 import { useState } from "react";
 import "./App.css";
-import Card from "./components/card/Card";
+import AllCards from "./views/AllCards";
 
 function App() {
   return (
-    <>
-      <Card />
-    </>
+    <main>
+      <div className="mainContainer">
+        <AllCards />
+      </div>
+    </main>
   );
 }
 

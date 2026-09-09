@@ -1,0 +1,16 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+main {
+  background-color: black;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+.mainContainer{
+  background-color: white;
+
+}
