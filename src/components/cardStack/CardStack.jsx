@@ -4,9 +4,10 @@ import Card from "../card/Card";
 function CardStack({ onCardClick }) {
   const cards = useSelector((state) => state.card.cards);
 
+  const otherCards = cards.filter((card) => card !== activeCard);
   return (
     <section className="cardStack">
-      {cards.map((card, index) => (
+      {otherCards.map((card, index) => (
         <Card key={index} card={card} onClick={() => onCardClick(card)} />
       ))}
     </section>

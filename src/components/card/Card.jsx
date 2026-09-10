@@ -1,8 +1,31 @@
 import bitCoin from "../../assets/vendor-bitcoin.svg";
+import blockChain from "../../assets/vendor-blockchain.svg";
+import evil from "../../assets/vendor-evil.svg";
+import ninja from "../../assets/vendor-ninja.svg";
 import chipLight from "../../assets/chip-light.svg";
 import "./Card.css";
 
 function Card({ card, onClick }) {
+  const vendorLogo = getVendorLogo(card.vendor);
+
+  function getVendorLogo(vendor) {
+    switch (vendor) {
+      case "bitcoin":
+        return bitCoin;
+
+      case "ninja":
+        return ninja;
+
+      case "blockchain":
+        return blockChain;
+
+      case "evil":
+        return evil;
+
+      default:
+        return null;
+    }
+  }
   return (
     <section className="cardContainer" onClick={onClick}>
       <div className="card">
@@ -11,7 +34,7 @@ function Card({ card, onClick }) {
             <img src={chipLight} />
           </div>
           <div className="leftIcons">
-            <img src={bitCoin} />
+            {vendorLogo && <img src={vendorLogo} />}
           </div>
         </div>
         <div className="cardBottom">

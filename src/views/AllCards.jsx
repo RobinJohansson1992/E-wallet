@@ -21,7 +21,7 @@ function AllCards() {
 
       {activeCard && <Card card={activeCard} />}
 
-      <CardStack onCardClick={handleCardClick} />
+      <CardStack onCardClick={handleCardClick} activeCard={activeCard} />
 
       <Link to="/AddCard" className="navBtn">
         ADD A NEW CARD
