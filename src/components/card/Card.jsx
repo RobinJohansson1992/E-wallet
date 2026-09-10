@@ -2,9 +2,9 @@ import bitCoin from "../../assets/vendor-bitcoin.svg";
 import chipLight from "../../assets/chip-light.svg";
 import "./Card.css";
 
-function Card({ card }) {
+function Card({ card, onClick }) {
   return (
-    <section className="cardContainer">
+    <section className="cardContainer" onClick={onClick}>
       <div className="card">
         <div className="cardTop">
           <div className="rightIcons">

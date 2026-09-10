@@ -25,7 +25,7 @@ function AddCard() {
   };
 
   return (
-    <>
+    <section className="appContainer">
       <Header header="ADD CARD" activeCard="NEW CARD" />
       <Card card={card} />
       <CardForm card={card} setCard={setCard} />
@@ -35,7 +35,7 @@ function AddCard() {
       <Link to="/" className="navBtn">
         Back
       </Link>
-    </>
+    </section>
   );
 }
 export default AddCard;

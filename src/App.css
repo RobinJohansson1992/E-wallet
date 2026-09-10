@@ -2,13 +2,25 @@
   margin: 0px;
   padding: 0px;
 }
-
-main {
-  background-color: black;
-  width: 100vw;
+body {
+  font-family:
+    "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
+    Arial, sans-serif;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: black;
   height: 100vh;
+}
+.appContainer {
+  background-color: white;
+  width: 27rem;
+  height: 99vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid gray;
+  overflow: auto;
 }
 .mainContainer {
   background-color: white;
@@ -32,4 +44,10 @@ main {
 .navBtn:hover {
   background-color: lightgray;
 }
-
+.cardStack {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  max-height: 20rem;
+  background-color: gray;
+}
