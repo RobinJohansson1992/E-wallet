@@ -28,7 +28,7 @@ function Card({ card, onClick }) {
   }
   return (
     <section className="cardContainer" onClick={onClick}>
-      <div className="card">
+      <div className={`card ${card.vendor}`}>
         <div className="cardTop">
           <div className="rightIcons">
             <img src={chipLight} />

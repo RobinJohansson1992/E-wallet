@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import Card from "../card/Card";
 
-function CardStack({ onCardClick }) {
+function CardStack({ onCardClick, activeCard }) {
   const cards = useSelector((state) => state.card.cards);
 
   const otherCards = cards.filter((card) => card !== activeCard);
