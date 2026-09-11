@@ -1,0 +1,12 @@
+.cardStack {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  max-height: 20rem;
+}
+.cardStack .cardContainer {
+  margin-top: -14rem;
+}
+.cardStack .cardContainer:first-child {
+  margin-top: 0;
+}

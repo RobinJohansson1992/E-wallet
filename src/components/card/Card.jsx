@@ -3,10 +3,14 @@ import blockChain from "../../assets/vendor-blockchain.svg";
 import evil from "../../assets/vendor-evil.svg";
 import ninja from "../../assets/vendor-ninja.svg";
 import chipLight from "../../assets/chip-light.svg";
+import chipDark from "../../assets/chip-dark.svg";
 import "./Card.css";
 
 function Card({ card, onClick }) {
   const vendorLogo = getVendorLogo(card.vendor);
+
+  const chip =
+    !card.vendor || card.vendor === "formCard" ? chipDark : chipLight;
 
   function getVendorLogo(vendor) {
     switch (vendor) {
@@ -31,7 +35,7 @@ function Card({ card, onClick }) {
       <div className={`card ${card.vendor}`}>
         <div className="cardTop">
           <div className="rightIcons">
-            <img src={chipLight} />
+            <img src={chip} />
           </div>
           <div className="leftIcons">
             {vendorLogo && <img src={vendorLogo} />}

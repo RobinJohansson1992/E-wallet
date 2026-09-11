@@ -4,11 +4,12 @@ import { Link, useNavigate } from "react-router-dom";
 import "../App.css";
 import { useState } from "react";
 import CardForm from "../components/cardForm/CardForm";
-import { useDispatch } from "react-redux";
-import { addToCardStack } from "../reducers/CardReducer";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCardStack, setActiveCard } from "../reducers/CardReducer";
 
 function AddCard() {
   const [card, setCard] = useState({
+    id: crypto.randomUUID(),
     cardNumber: "",
     cardHolder: "",
     validThru: "",
@@ -18,9 +19,14 @@ function AddCard() {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const activeCard = useSelector((state) => state.card.activeCard);
 
   const handleAddCard = () => {
     dispatch(addToCardStack(card));
+
+    if (!activeCard) {
+      dispatch(setActiveCard(card));
+    }
     navigate("/");
   };
 

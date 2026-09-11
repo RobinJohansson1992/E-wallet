@@ -11,22 +11,20 @@ body {
   align-items: center;
   background-color: black;
   height: 100vh;
+  overflow: auto;
 }
 .appContainer {
   background-color: white;
   width: 27rem;
-  height: 99vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid gray;
-  overflow: auto;
-}
-.mainContainer {
-  background-color: white;
+  padding-bottom: 2rem;
+  height: 100vh;
 }
 .navBtn {
   height: 4rem;
+  min-height: 4rem;
   width: 25rem;
   display: flex;
   justify-self: center;
@@ -43,10 +41,4 @@ body {
 }
 .navBtn:hover {
   background-color: lightgray;
-}
-.cardStack {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  max-height: 20rem;
 }
