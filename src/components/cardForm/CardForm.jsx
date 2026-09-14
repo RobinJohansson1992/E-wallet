@@ -15,6 +15,7 @@ function CardForm({ card, setCard }) {
       <p>CARD NUMBER</p>
       <input
         name="cardNumber"
+        placeholder="XXXX XXXX XXXX XXXX"
         type="text"
         className="bigInput"
         value={card.cardNumber}
@@ -34,6 +35,7 @@ function CardForm({ card, setCard }) {
           <p>VALID THRU</p>
           <input
             name="validThru"
+            placeholder="MM/YY"
             type="text"
             className="smallInput"
             value={card.validThru}
@@ -44,6 +46,7 @@ function CardForm({ card, setCard }) {
           <p>CCV</p>
           <input
             name="ccv"
+            placeholder="123"
             type="text"
             className="smallInput"
             value={card.ccv}
@@ -58,7 +61,7 @@ function CardForm({ card, setCard }) {
         value={card.vendor}
         onChange={handleChange}
       >
-        <option value="">Choose vendor</option>
+        <option value="formCard">Choose vendor</option>
         <option value="bitcoin">Bitcoin Inc</option>
         <option value="ninja">Ninja Bank</option>
         <option value="blockchain">Block Chain Inc</option>

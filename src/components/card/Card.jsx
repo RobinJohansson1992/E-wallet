@@ -1,17 +1,44 @@
 import bitCoin from "../../assets/vendor-bitcoin.svg";
+import blockChain from "../../assets/vendor-blockchain.svg";
+import evil from "../../assets/vendor-evil.svg";
+import ninja from "../../assets/vendor-ninja.svg";
 import chipLight from "../../assets/chip-light.svg";
+import chipDark from "../../assets/chip-dark.svg";
 import "./Card.css";
 
-function Card({ card }) {
+function Card({ card, onClick }) {
+  const vendorLogo = getVendorLogo(card.vendor);
+
+  const chip =
+    !card.vendor || card.vendor === "formCard" ? chipDark : chipLight;
+
+  function getVendorLogo(vendor) {
+    switch (vendor) {
+      case "bitcoin":
+        return bitCoin;
+
+      case "ninja":
+        return ninja;
+
+      case "blockchain":
+        return blockChain;
+
+      case "evil":
+        return evil;
+
+      default:
+        return null;
+    }
+  }
   return (
-    <section className="cardContainer">
-      <div className="card">
+    <section className="cardContainer" onClick={onClick}>
+      <div className={`card ${card.vendor}`}>
         <div className="cardTop">
           <div className="rightIcons">
-            <img src={chipLight} />
+            <img src={chip} />
           </div>
           <div className="leftIcons">
-            <img src={bitCoin} />
+            {vendorLogo && <img src={vendorLogo} />}
           </div>
         </div>
         <div className="cardBottom">

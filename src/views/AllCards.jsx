@@ -1,22 +1,32 @@
 import Card from "../components/card/Card";
 import Header from "../components/header/Header";
+import CardStack from "../components/cardStack/CardStack";
 import { Link } from "react-router-dom";
 import "../App.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setActiveCard } from "../reducers/CardReducer";
 
 function AllCards() {
-  const cards = useSelector((state) => state.card.cards);
+  const activeCard = useSelector((state) => state.card.activeCard);
+
+  const dispatch = useDispatch();
+
+  const handleCardClick = (card) => {
+    dispatch(setActiveCard(card));
+  };
 
   return (
-    <>
+    <section className="appContainer">
       <Header header="E-WALLET" activeCard="ACTIVE CARD" />
-      {cards.map((card, index) => (
-        <Card key={index} card={card} />
-      ))}
+
+      {activeCard && <Card card={activeCard} />}
+
+      <CardStack onCardClick={handleCardClick} activeCard={activeCard} />
+
       <Link to="/AddCard" className="navBtn">
         ADD A NEW CARD
       </Link>
-    </>
+    </section>
   );
 }
 
