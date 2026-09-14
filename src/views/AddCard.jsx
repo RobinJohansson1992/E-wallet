@@ -8,6 +8,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { addToCardStack, setActiveCard } from "../reducers/CardReducer";
 
 function AddCard() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const activeCard = useSelector((state) => state.card.activeCard);
+
   const [card, setCard] = useState({
     id: crypto.randomUUID(),
     cardNumber: "",
@@ -16,10 +21,6 @@ function AddCard() {
     ccv: "",
     vendor: "",
   });
-
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const activeCard = useSelector((state) => state.card.activeCard);
 
   const handleAddCard = () => {
     dispatch(addToCardStack(card));
@@ -32,14 +33,14 @@ function AddCard() {
 
   return (
     <section className="appContainer">
-      <Header header="ADD CARD" activeCard="NEW CARD" />
+      <Header header="ADD A NEW BANK CARD" activeCard="NEW CARD" />
       <Card card={card} />
       <CardForm card={card} setCard={setCard} />
       <button onClick={handleAddCard} className="navBtn">
         ADD CARD
       </button>
       <Link to="/" className="navBtn">
-        Back
+        BACK
       </Link>
     </section>
   );
